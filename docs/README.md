@@ -8,17 +8,17 @@ An additional feature that I want to create is that you create zones or categori
 ## Intended Users
 The primary audience of the playlist will be for people who exercise and whose Heart bpm is important for performance and enjoy having music to match their exertion levels.
 
-_The preset zones can be key for personal trainers, fitness instructors, and coaches who curate their exercise routine and would like music to accompany their plan without them having to worry about adjusting during activity._
+_he preset zones can be key for personal trainers, fitness instructors, and coaches who curate their exercise routine and would like music to accompany their plan without them having to worry about adjusting during activity._
 
 ## External Services
-_The external service/data will require a connection to Spotify music app and library, eventually the service can be connected to other music libraries._
+The external service/data will require a connection to Spotify music app and library, eventually the service can be connected to other music libraries.
 
 
 - [Spotify Android SDK](https://developer.spotify.com/documentation/android/)
   - Allows me to access the Spotify app and run in the background.
 
 - Spotify Sort your music feature made by [echonest](https://github.com/plamere/SortYourMusic)
-  -  Allows your music to be sorted through many categories such as: BPM, Energy, Loudness, Valence, and etc.._
+  -  Allows your music to be sorted through many categories such as: BPM, Energy, Loudness, Valence, and etc..
 
 
 
