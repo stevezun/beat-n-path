@@ -37,6 +37,8 @@ The preset zones can be key for personal trainers, fitness instructors, and coac
 
 ### [Entity-Relationship-Diagram](erd.md)
 
+### [Wireframe](wireframe.md)
+
 ## External services/data
 The external service/data will require a connection to Spotify music app and library, eventually the service can be connected to other music libraries.s
 
