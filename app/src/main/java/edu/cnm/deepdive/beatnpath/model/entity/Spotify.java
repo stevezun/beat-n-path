@@ -4,18 +4,11 @@ import android.app.Application;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 @Entity(
-    foreignKeys = {
-        @ForeignKey(
-            entity = Application.class,
-            parentColumns = "application_id",
-            childColumns = "application_id",
-            onDelete = ForeignKey.CASCADE
-
-        )
-    }
+    indices = @Index( value = "bpm", unique = true)
 )
 public class Spotify {
 
@@ -23,8 +16,11 @@ public class Spotify {
   @PrimaryKey(autoGenerate = true)
   private long id;
 
-  @ColumnInfo(name = "login_id", index = true)
-  private long loginId;
+  @ColumnInfo(name = "song_bpm", index = true)
+  private long songBPM;
+
+  @ColumnInfo(name = "song_time_length", index = true)
+  private long songTimeLength;
 
   @ColumnInfo(name = "song_list", index = true)
   private long songList;
@@ -37,12 +33,20 @@ public class Spotify {
     this.id = id;
   }
 
-  public long getLoginId() {
-    return loginId;
+  public long getSongBPM() {
+    return songBPM;
   }
 
-  public void setLoginId(long loginId) {
-    this.loginId = loginId;
+  public void setSongBPM(long songBPM) {
+    this.songBPM = songBPM;
+  }
+
+  public long getSongTimeLength() {
+    return songTimeLength;
+  }
+
+  public void setSongTimeLength(long songTimeLength) {
+    this.songTimeLength = songTimeLength;
   }
 
   public long getSongList() {

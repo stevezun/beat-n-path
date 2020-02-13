@@ -26,7 +26,7 @@ public interface UserDao {
   @Delete
   int delete(User... users );
 
-  @Query( "SELECT * FROM User ORDER BY name" ) //You may need to adjdust this and refine this with your info, specifically "name"
+  @Query( "SELECT * FROM User ORDER BY user_id DESC" )
   LiveData<List<User>> select();
 
 
