@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import com.google.gson.annotations.Expose;
 
 @Entity(
     foreignKeys = {
@@ -22,9 +23,11 @@ public class User {
   private long user;
 
   @ColumnInfo(name = "spotify_login", index = true)
+  @Expose
   private long spotifyLogin;
 
   @ColumnInfo(name = "zones", index = true)
+  @Expose//TODO you need to redo this idea, and work it out on your erd.
   private long zones;
 
   public long getUser() {

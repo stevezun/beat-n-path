@@ -5,6 +5,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
 import edu.cnm.deepdive.beatnpath.model.dao.HeartMonitorDao;
 import edu.cnm.deepdive.beatnpath.model.dao.SpotifyDao;
 import edu.cnm.deepdive.beatnpath.model.dao.UserDao;
@@ -17,14 +18,13 @@ import edu.cnm.deepdive.beatnpath.model.entity.User;
     version = 1,
     exportSchema = true
 )
-
 public abstract class BeatNPathDatabase extends RoomDatabase {
 
   private static final String DB_NAME = "beatnpath_db";
 
   private static Application context;
 
-  public static void setContext(Application context) { BeatNPathDatabase.context = context; }
+  public static void setContext (Application context) { BeatNPathDatabase.context = context; }
 
   public static BeatNPathDatabase getInstance() { return InstanceHolder.INSTANCE; }
 

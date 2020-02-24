@@ -6,16 +6,16 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import com.google.gson.annotations.Expose;
 
 @Entity(
-    foreignKeys = {
-        @ForeignKey(
-            entity = Application.class,
+    foreignKeys = @ForeignKey(
+            entity = HeartMonitor.class,
             parentColumns = "heart_id",
             childColumns = "heart_id",
             onDelete = ForeignKey.CASCADE
         )
-    }
+
 )
 public class HeartMonitor {
 
@@ -24,15 +24,19 @@ public class HeartMonitor {
   private long id;
 
   @ColumnInfo(name = "heart_beats_per_minute", index = true)
+  @Expose
   private long heartBeatsPerMinute;
 
   @ColumnInfo(name ="time_length", index = true)
+  @Expose
   private long timeLength;
 
   @ColumnInfo(name = " heart_rate_average", index = true)
+  @Expose
   private long heartRateAverage;
 
   @ColumnInfo(name = "heart_rate_peak", index = true)
+  @Expose
   private long heartRatePeak;
 
   public long getId() {
