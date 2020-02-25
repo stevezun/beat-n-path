@@ -42,3 +42,29 @@ The external service/data will require a connection to Spotify music app and lib
   -  Allows your music to be sorted through many categories such as: BPM, Energy, Loudness, Valence, and etc.._
 
   - Fitbit API
+  
+##Entity
+
+[HeartMonitor](https://github.com/stevezun/beat-n-path/blob/master/app/src/main/java/edu/cnm/deepdive/beatnpath/model/entity/Spotify.java)
+
+[Spotify](https://github.com/stevezun/beat-n-path/blob/master/app/src/main/java/edu/cnm/deepdive/beatnpath/model/entity/Spotify.java)
+
+[User](https://github.com/stevezun/beat-n-path/blob/master/app/src/main/java/edu/cnm/deepdive/beatnpath/model/entity/User.java)
+
+##Dao
+
+[HeartMonitorDao](https://github.com/stevezun/beat-n-path/blob/master/app/src/main/java/edu/cnm/deepdive/beatnpath/model/dao/HeartMonitorDao.java)
+
+[SpotifyDao](https://github.com/stevezun/beat-n-path/blob/master/app/src/main/java/edu/cnm/deepdive/beatnpath/model/dao/SpotifyDao.java)
+
+[UserDao](https://github.com/stevezun/beat-n-path/blob/master/app/src/main/java/edu/cnm/deepdive/beatnpath/model/dao/UserDao.java)
+
+##Database
+
+[BeatNPathDatabase](https://github.com/stevezun/beat-n-path/blob/master/app/src/main/java/edu/cnm/deepdive/beatnpath/service/BeatNPathDatabase.java)
+  
+## Implementation
+
+[Data definition language (DDL)](ddl.md)
+
+
