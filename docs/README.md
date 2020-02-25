@@ -1,6 +1,4 @@
-# Title
-
-Beat n Path
+# Beat N Path
 
 ## Description
 
@@ -11,13 +9,6 @@ I want the program to be able to accomplish this in two ways. The first by being
 
 An additional feature that I want to create is that you create zones or categories of desired heart rate with a set timer. The program will pull up music within the desired heart rate for that set amount of time. You would be able to create multiple zones that would run concurrently with each other to simulate warm-up, intensity, and cooldown, or any other custom arrangement the user wants to create.
 
-
-## External services/data
-The external service/data will require a connection to Spotify music app and library, eventually the service can be connected to other music libraries.
-
-I want to attempt the program where you begin by inserting a number value that will be for the desired heart rate(BPM) and program will pull up a set of songs within a range that is directly the same BPM as the entered BPM in the Spotify playlist/library
-
-An additional feature that I want to create is that you create zones or categories of desired heart rate with a set timer. The program will pull up music within the desired heart rate for that set amount of time. You would be able to create multiple zones that would run concurrently with each other to simulate warm-up, intensity, and cooldown, or any other custom arrangement the user wants to create.
 
 ## Intended users
 
@@ -34,16 +25,16 @@ The preset zones can be key for personal trainers, fitness instructors, and coac
 ## External services/data
 The external service/data will require a connection to Spotify music app and library, eventually the service can be connected to other music libraries.
 
+- [Spotify Android SDK](https://developer.spotify.com/documentation/android/) Allows me to access the Spotify app and run in the background.
 
-- [Spotify Android SDK](https://developer.spotify.com/documentation/android/)
-  - Allows me to access the Spotify app and run in the background.
-
-- Spotify Sort your music feature made by [echonest](https://github.com/plamere/SortYourMusic)
-  -  Allows your music to be sorted through many categories such as: BPM, Energy, Loudness, Valence, and etc.._
-
-  - Fitbit API
+- [Spotify Documentation](https://developer.spotify.com/documentation/web-api/reference-beta/#object-audiofeaturesobject) Query Parameters from the Spotify Docs,
+  allow me to make Requests based on many parameters, most specifically tempo or beats per minute.
   
-##Entity
+- [Google Fit API](https://developers.google.com/fit/android/sensors) allows me to collect raw sensor data, from the phone or an external device that is a wearable.
+  
+ The app will not be able to work without the two programs. I will need to collect data to connect to the music service that will stream music. 
+  
+## Entity
 
 [HeartMonitor](https://github.com/stevezun/beat-n-path/blob/master/app/src/main/java/edu/cnm/deepdive/beatnpath/model/entity/Spotify.java)
 
@@ -51,7 +42,7 @@ The external service/data will require a connection to Spotify music app and lib
 
 [User](https://github.com/stevezun/beat-n-path/blob/master/app/src/main/java/edu/cnm/deepdive/beatnpath/model/entity/User.java)
 
-##Dao
+## Dao
 
 [HeartMonitorDao](https://github.com/stevezun/beat-n-path/blob/master/app/src/main/java/edu/cnm/deepdive/beatnpath/model/dao/HeartMonitorDao.java)
 
@@ -59,7 +50,7 @@ The external service/data will require a connection to Spotify music app and lib
 
 [UserDao](https://github.com/stevezun/beat-n-path/blob/master/app/src/main/java/edu/cnm/deepdive/beatnpath/model/dao/UserDao.java)
 
-##Database
+## Database
 
 [BeatNPathDatabase](https://github.com/stevezun/beat-n-path/blob/master/app/src/main/java/edu/cnm/deepdive/beatnpath/service/BeatNPathDatabase.java)
   
