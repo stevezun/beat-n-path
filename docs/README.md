@@ -2,21 +2,19 @@
 
 ## Description
 
-The purpose of the app is to create a tailored playlist for people who are exercising. The purpose of the app is to match the Heart bpm to the bpm of a specific style of music or curated playlist.
-
-
-I want the program to be able to accomplish this in two ways. The first by being able to connect and sync with a heart rate monitor built into a smart watch. The live data will be fed into the app and calculated accordingly. The other way, which will be a offline mode of sorts, will allow you to start the program by manually inserting your preferred BPM and allow the program to pull up a set of songs with that range that is directly correlated to the input information.
-
-An additional feature that I want to create is that you create zones or categories of desired heart rate with a set timer. The program will pull up music within the desired heart rate for that set amount of time. You would be able to create multiple zones that would run concurrently with each other to simulate warm-up, intensity, and cooldown, or any other custom arrangement the user wants to create.
-
+Beat N Path is a live data driven music player. Rather than visualizing data, the app will take
+live data and turn into sounds by matching it with a music service. Live heart data will be taken
+from a user and be used to match music from Spotify. Beat N Path will be the solution for people who want
+to have music streaming to their physical activities without the stress of having to be distracted trying to
+coordinate it.
 
 ## Intended users
 
-The primary audience of the playlist will be for people who exercise and whose Heart bpm is important for performance and enjoy having music to match their exertion levels.
+The intended users of Beat N Path will be consumers who use wearable devices that transmit live data to a device. The user will be the type of person that wants
+to perform an activity where music is important to their focus but cannot be distracted by having to curate their own music every time a song is over. They prefer
+the music to match their activity and performance levels.
 
-The preset zones can be key for personal trainers, fitness instructors, and coaches who curate their exercise routine and would like music to accompany their plan without them having to worry about adjusting during activity.
-
-### [User Stories](C:\Users\steve\Desktop\bootcamp\projects\android-project-idea-1-stevezun\user-stories.md)
+### [User Stories](userstories.md)
 
 ### [Entity-Relationship-Diagram](erd.md)
 
