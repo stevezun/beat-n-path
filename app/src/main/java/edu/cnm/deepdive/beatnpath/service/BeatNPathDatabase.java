@@ -6,18 +6,20 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
-import edu.cnm.deepdive.beatnpath.model.dao.HeartMonitorDao;
-import edu.cnm.deepdive.beatnpath.model.dao.SpotifyDao;
+import edu.cnm.deepdive.beatnpath.model.dao.MeasurementDao;
+import edu.cnm.deepdive.beatnpath.model.dao.SongDao;
 import edu.cnm.deepdive.beatnpath.model.dao.UserDao;
-import edu.cnm.deepdive.beatnpath.model.entity.HeartMonitor;
-import edu.cnm.deepdive.beatnpath.model.entity.Spotify;
+import edu.cnm.deepdive.beatnpath.model.entity.Song;
 import edu.cnm.deepdive.beatnpath.model.entity.User;
+import edu.cnm.deepdive.beatnpath.service.BeatNPathDatabase.Converters;
+import java.util.Date;
 
 @Database(
-    entities = {User.class, Spotify.class, HeartMonitor.class},
+    entities = {User.class, Song.class, edu.cnm.deepdive.beatnpath.model.entity.Measurement.class},
     version = 1,
     exportSchema = true
 )
+@TypeConverters({Converters.class})
 public abstract class BeatNPathDatabase extends RoomDatabase {
 
   private static final String DB_NAME = "beatnpath_db";
@@ -28,17 +30,31 @@ public abstract class BeatNPathDatabase extends RoomDatabase {
 
   public static BeatNPathDatabase getInstance() { return InstanceHolder.INSTANCE; }
 
-  public abstract SpotifyDao getSpotifyDao();
+  public abstract SongDao getSpotifyDao();
 
   public abstract UserDao getUserDao();
 
-  public abstract HeartMonitorDao getHeartMonitorDao();
+  public abstract MeasurementDao getHeartMonitorDao();
 
   private static class InstanceHolder {
 
     private static final BeatNPathDatabase INSTANCE = Room.databaseBuilder(
         context, BeatNPathDatabase.class, DB_NAME)
         .build();
+
+  }
+
+  public static class Converters {
+
+    @TypeConverter
+    public static Long fromDate(Date date) {
+      return (date != null) ? date.getTime() : null;
+    }
+
+    @TypeConverter
+    public static Date fromLong(Long value) {
+      return (value != null) ? new Date(value) : null;
+    }
 
   }
 

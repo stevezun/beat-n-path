@@ -23,9 +23,9 @@ the music to match their activity and performance levels.
 ## External services/data
 The external service/data will require a connection to Spotify music app and library, eventually the service can be connected to other music libraries.
 
-- [Spotify Android SDK](https://developer.spotify.com/documentation/android/) Allows me to access the Spotify app and run in the background.
+- [Spotify Android SDK](https://developer.song.com/documentation/android/) Allows me to access the Spotify app and run in the background.
 
-- [Spotify Documentation](https://developer.spotify.com/documentation/web-api/reference-beta/#object-audiofeaturesobject) Query Parameters from the Spotify Docs,
+- [Spotify Documentation](https://developer.song.com/documentation/web-api/reference-beta/#object-audiofeaturesobject) Query Parameters from the Spotify Docs,
   allow me to make Requests based on many parameters, most specifically tempo or beats per minute.
   
 - [Google Fit API](https://developers.google.com/fit/android/sensors) allows me to collect raw sensor data, from the phone or an external device that is a wearable.

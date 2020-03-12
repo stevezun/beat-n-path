@@ -3,54 +3,49 @@ package edu.cnm.deepdive.beatnpath.model.entity;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
 
 @Entity(
-    foreignKeys = {
-        @ForeignKey(
-        entity = User.class,
-        parentColumns = "user_id",
-        childColumns = "user_id",
-        onDelete = ForeignKey.CASCADE
-        )
+    indices = {
+        @Index(value = "spotify_login", unique = true),
+        @Index( value ="authkey", unique = true )
     }
 )
 public class User {
 
-  @ColumnInfo(name = "user_id")
+  @ColumnInfo( name = "user_id")
   @PrimaryKey(autoGenerate = true)
-  private long user;
+  private long id;
 
-  @ColumnInfo(name = "spotify_login", index = true)
-  @Expose
-  private long spotifyLogin;
+  @ColumnInfo( name = "spotify_login")
+  private String spotifyLogin;
 
-  @ColumnInfo(name = "zones", index = true)
-  @Expose//TODO you need to redo this idea, and work it out on your erd.
-  private long zones;
+  @ColumnInfo( name = "authkey")
+  private String oauth;
 
-  public long getUser() {
-    return user;
+  public long getId() {
+    return id;
   }
 
-  public void setUser(long user) {
-    this.user = user;
+  public void setId(long id) {
+    this.id = id;
   }
 
-  public long getSpotifyLogin() {
+  public String getSpotifyLogin() {
     return spotifyLogin;
   }
 
-  public void setSpotifyLogin(long spotifyLogin) {
+  public void setSpotifyLogin(String spotifyLogin) {
     this.spotifyLogin = spotifyLogin;
   }
 
-  public long getZones() {
-    return zones;
+  public String getOauth() {
+    return oauth;
   }
 
-  public void setZones(long zones) {
-    this.zones = zones;
+  public void setOauth(String oauth) {
+    this.oauth = oauth;
   }
 }
