@@ -13,7 +13,7 @@ public class BeatNPathApplication extends Application {
     super.onCreate();
     Stetho.initializeWithDefaults(this);
     BeatNPathDatabase.setContext(this);
-    BeatNPathDatabase.getInstance().getSpotifyDao().delete()
+    BeatNPathDatabase.getInstance().getSongDao().delete()
         .subscribeOn( Schedulers.io())
         .subscribe();
   }

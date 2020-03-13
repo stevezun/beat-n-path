@@ -1,16 +1,15 @@
 package edu.cnm.deepdive.beatnpath.model.repository;
 
 import android.app.Application;
-import edu.cnm.deepdive.beatnpath.model.dao.UserDao;
-import edu.cnm.deepdive.beatnpath.model.entity.User;
+import edu.cnm.deepdive.beatnpath.model.dao.MeasurementDao;
+import edu.cnm.deepdive.beatnpath.model.entity.Measurement;
+import edu.cnm.deepdive.beatnpath.model.entity.Song;
 import edu.cnm.deepdive.beatnpath.service.BeatNPathDatabase;
-import io.reactivex.Single;
-import io.reactivex.schedulers.Schedulers;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class UserRepository {
+public class MeasurementRepository {
 
   private static final int NETWORK_THREAD_COUNT = 10;
 
@@ -19,7 +18,7 @@ public class UserRepository {
 
   private static Application context;
 
-  private UserRepository() {
+  private MeasurementRepository() {
     if (context == null) {
       throw new IllegalStateException(  );
     }
@@ -28,24 +27,20 @@ public class UserRepository {
   }
 
   public static void setContext(Application context) {
-    UserRepository.context = context;
+    MeasurementRepository.context = context;
   }
 
-  public static UserRepository getInstance() {
-    return UserRepository.InstanceHolder.INSTANCE;
+  public static MeasurementRepository getInstance() {
+    return BeatNPathDatabase.InstanceHolder.Instance;
   }
 
-  public List<User> get() {6
-    UserDao dao = database.getUserDao();
-    return (List<User>) dao.select();
-  }
-
-  public Single<Object> get(long id) {
-    UserDao dao = database.getUserDao();
-    return dao.insert(id).subscribeOn(Schedulers.io());
+  public List<Measurement> measurementData() {
+    MeasurementDao dao = database.getMeasurementDao();
+    return dao.measurementData();                           //TODO list keeps switching from measurement to song
   }
 
   private static class InstanceHolder {
-    private static final UserRepository INSTANCE = new UserRepository();
+    private static final MeasurementRepository INSTANCE = new MeasurementRepository();
   }
+
 }

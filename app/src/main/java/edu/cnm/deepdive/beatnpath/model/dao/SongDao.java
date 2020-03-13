@@ -30,7 +30,6 @@ public interface SongDao {
   Single<Integer> delete(Song... song);
 
   @Query( "SELECT * FROM Song ORDER BY song_tempo DESC" )
-  LiveData<List<Song>> select();
-
+  List<Song> songTempo();
 
 }

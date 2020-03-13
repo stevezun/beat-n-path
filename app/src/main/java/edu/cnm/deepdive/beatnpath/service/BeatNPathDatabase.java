@@ -9,13 +9,15 @@ import androidx.room.TypeConverters;
 import edu.cnm.deepdive.beatnpath.model.dao.MeasurementDao;
 import edu.cnm.deepdive.beatnpath.model.dao.SongDao;
 import edu.cnm.deepdive.beatnpath.model.dao.UserDao;
+import edu.cnm.deepdive.beatnpath.model.entity.Measurement;
 import edu.cnm.deepdive.beatnpath.model.entity.Song;
 import edu.cnm.deepdive.beatnpath.model.entity.User;
+import edu.cnm.deepdive.beatnpath.model.repository.MeasurementRepository;
 import edu.cnm.deepdive.beatnpath.service.BeatNPathDatabase.Converters;
 import java.util.Date;
 
 @Database(
-    entities = {User.class, Song.class, edu.cnm.deepdive.beatnpath.model.entity.Measurement.class},
+    entities = {User.class, Song.class, Measurement.class},
     version = 1,
     exportSchema = true
 )
@@ -30,18 +32,19 @@ public abstract class BeatNPathDatabase extends RoomDatabase {
 
   public static BeatNPathDatabase getInstance() { return InstanceHolder.INSTANCE; }
 
-  public abstract SongDao getSpotifyDao();
+  public abstract SongDao getSongDao();
 
   public abstract UserDao getUserDao();
 
-  public abstract MeasurementDao getHeartMonitorDao();
+  public abstract MeasurementDao getMeasurementDao();
 
-  private static class InstanceHolder {
+  public static class InstanceHolder {
 
     private static final BeatNPathDatabase INSTANCE = Room.databaseBuilder(
         context, BeatNPathDatabase.class, DB_NAME)
         .build();
 
+    public static MeasurementRepository Instance;
   }
 
   public static class Converters {
