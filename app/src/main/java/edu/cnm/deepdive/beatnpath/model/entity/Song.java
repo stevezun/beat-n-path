@@ -12,12 +12,12 @@ import java.util.Date;
 @Entity(
     indices = {
         @Index(value = "date", unique = true),
-        @Index( value = "song_tempo" )
+        @Index( value = "song_tempo" ),
     }
 )
 public class Song {
 
-  @ColumnInfo(name = "song_id")
+  @ColumnInfo(name = "song_id", index = true)
   @PrimaryKey(autoGenerate = true)
   private long id;
 

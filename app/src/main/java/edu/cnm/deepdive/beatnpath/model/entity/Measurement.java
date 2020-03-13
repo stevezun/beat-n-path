@@ -13,19 +13,14 @@ import javax.annotation.Nullable;
 @Entity(
     indices = {
         @Index(value = "measurement_data"),
-        @Index( value = "date", unique = true)
+        @Index( value = "date", unique = true),
+        @Index( value = "song_id")
     },
     foreignKeys = {
         @ForeignKey(
             entity = Song.class,
             parentColumns = "song_id",
             childColumns = "song_id",
-            onDelete = ForeignKey.CASCADE
-        ),
-        @ForeignKey(
-            entity = User.class,
-            parentColumns = "user_id",
-            childColumns = "user_id",
             onDelete = ForeignKey.CASCADE
         )
     }
