@@ -1,0 +1,152 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "45a0dda313b08f537c49bf8536ea56c6",
+    "entities": [
+      {
+        "tableName": "Song",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`song_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `song_tempo` INTEGER NOT NULL, `date` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "song_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "songTempo",
+            "columnName": "song_tempo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "song_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Song_date",
+            "unique": true,
+            "columnNames": [
+              "date"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_Song_date` ON `${TABLE_NAME}` (`date`)"
+          },
+          {
+            "name": "index_Song_song_tempo",
+            "unique": false,
+            "columnNames": [
+              "song_tempo"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Song_song_tempo` ON `${TABLE_NAME}` (`song_tempo`)"
+          },
+          {
+            "name": "index_Song_song_id",
+            "unique": false,
+            "columnNames": [
+              "song_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Song_song_id` ON `${TABLE_NAME}` (`song_id`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Measurement",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`measurement_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `measurement_data` INTEGER NOT NULL, `date` INTEGER, `song_id` INTEGER NOT NULL, `user_id` INTEGER NOT NULL, FOREIGN KEY(`song_id`) REFERENCES `Song`(`song_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "measurement_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "measurementData",
+            "columnName": "measurement_data",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "songId",
+            "columnName": "song_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "user_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "measurement_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Measurement_measurement_data",
+            "unique": false,
+            "columnNames": [
+              "measurement_data"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Measurement_measurement_data` ON `${TABLE_NAME}` (`measurement_data`)"
+          },
+          {
+            "name": "index_Measurement_date",
+            "unique": true,
+            "columnNames": [
+              "date"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_Measurement_date` ON `${TABLE_NAME}` (`date`)"
+          },
+          {
+            "name": "index_Measurement_song_id",
+            "unique": false,
+            "columnNames": [
+              "song_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Measurement_song_id` ON `${TABLE_NAME}` (`song_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Song",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "song_id"
+            ],
+            "referencedColumns": [
+              "song_id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '45a0dda313b08f537c49bf8536ea56c6')"
+    ]
+  }
+}
